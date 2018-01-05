@@ -9,4 +9,14 @@ public class TurretBlueprint {
 	public GameObject prefab;
 	public int price;
 
+	public GameObject upgradedPrefab;
+	public int upgradePrice;
+
+
+	public int selldeduction = 2;
+
+	public int sellTower()
+	{
+		return price / selldeduction;  
+	}
 }

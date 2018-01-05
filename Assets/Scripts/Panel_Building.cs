@@ -13,7 +13,12 @@ public class Panel_Building : MonoBehaviour {
 
 	[Header("optional")] //
     public GameObject turret;
+	[HideInInspector]
+	public TurretBlueprint turretBlueprint;
+	[HideInInspector]
+	public bool isUpgraded = false;
 
+	public PlayerStats playerStats;
     BuildManager buildManager;
 
     void Start()
@@ -28,22 +33,67 @@ public class Panel_Building : MonoBehaviour {
 		return transform.position + positionOffset;
 	}
 
+	void BuildTurret(TurretBlueprint blueprint)
+	{
+		if (PlayerStats.Currency < blueprint.price) 
+		{
+			Debug.Log ("Not enough cash boiiiiii");
+			return;
+		}
+		PlayerStats.Currency -= blueprint.price;
+
+		GameObject _turret = (GameObject)Instantiate (blueprint.prefab, GetBuildPosition (), Quaternion.identity);
+		turret = _turret;
+
+		turretBlueprint = blueprint;
+
+	}
+
     void OnMouseDown()
     {
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (!buildManager.CanBuild)
-            return;
+       
 
         if (turret!= null)
         {
-            Debug.Log("Already have a turret here.");
+			buildManager.SelectPanelBuilding(this);
             return;
         }
 
-		buildManager.BuildTurretOn (this);
+		if (!buildManager.CanBuild)
+			return;
+		BuildTurret (buildManager.GetTurretToBuild ());
     }
+
+	public void UpgradeTurret()
+	{
+		{
+			if (PlayerStats.Currency < turretBlueprint.upgradePrice) 
+			{
+				Debug.Log ("Not enough cash to upgrade boiiiiii");
+				return;
+			}
+				
+			PlayerStats.Currency -= turretBlueprint.upgradePrice;
+
+			Destroy (turret);  //removes old turret
+
+			GameObject _turret = (GameObject)Instantiate (turretBlueprint.upgradedPrefab, GetBuildPosition (), Quaternion.identity);
+		
+			turret = _turret;
+			Debug.Log ("Turret upgraded");
+		}
+	}
+
+	public void SellTurret()
+	{
+		PlayerStats.Currency += turretBlueprint.sellTower();
+		Destroy (turret);
+		turretBlueprint = null;
+	}
+
 
     void OnMouseEnter()
     {

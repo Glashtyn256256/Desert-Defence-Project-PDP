@@ -8,8 +8,7 @@ public class Wave_Spawner : MonoBehaviour {
     public static int enemiesAlive = 0;
 
     public Wave[] wave;
-    
-    //Just what enemy to spawn. Now using Waves ^^^^^
+
     //public Transform enemyPrefab;
     public Transform spawnPoint;
 
@@ -19,9 +18,12 @@ public class Wave_Spawner : MonoBehaviour {
     public float countdown = 7f;
     public float timeBetweenEnemies = 0.3f;
     public int waveIndex = 0;
+    public int howManyEnemies = 0;
 	
 	// Update is called once per frame
 	void Update () {
+
+        howManyEnemies = Wave_Spawner.enemiesAlive;
 
         if (enemiesAlive > 0)
         {
@@ -49,10 +51,11 @@ public class Wave_Spawner : MonoBehaviour {
         for (int i = 0; i < spawningWave.count; i++)
         {
             SpawnEnemy(spawningWave.enemy);
-            yield return new WaitForSeconds(1f/spawningWave.rate);
+            yield return new WaitForSeconds(1f / spawningWave.rate);
         }
 
         waveIndex++;
+
         if (waveIndex == wave.Length)
         {
             waveIndex = 0;
@@ -62,6 +65,7 @@ public class Wave_Spawner : MonoBehaviour {
 
     void SpawnEnemy(GameObject enemy)
     {
+        //Debug.Log("Spawning an Enemy!");
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
         enemiesAlive++;
     }

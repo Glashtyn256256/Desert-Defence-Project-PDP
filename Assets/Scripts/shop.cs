@@ -39,5 +39,13 @@ public class shop : MonoBehaviour {
         buildManager.SelectTurretToBuild(thirdTurret);
 
     }
+	/*
+	public void SelectTurretSell()
+	{
+		// Check that you have the money for it first, etc.
+		// Closing the shop until you have placed the turret?
+		Debug.Log("Turret Sold.");
+		buildManager.TurretToSell();
 
+	}*/
 }

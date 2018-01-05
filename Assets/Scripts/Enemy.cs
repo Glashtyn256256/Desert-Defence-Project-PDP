@@ -57,6 +57,7 @@ public class Enemy : MonoBehaviour {
     {
         if (pointIndex >= (Waypoint.points.Length - 1))
         {
+            //Destroy(gameObject);
             Die();
             return;
         }

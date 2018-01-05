@@ -15,10 +15,13 @@ public class BuildManager : MonoBehaviour {
     public GameObject thirdTurretPrefab;
 
 	private TurretBlueprint turretToBuild;
+	private Panel_Building selectedPanel;
+
+	public Panel_BuildingUI panel_BuildingUI;
 
 	public bool CanBuild{get{ return turretToBuild !=null; } }
 
-
+	/*
 	public void BuildTurretOn(Panel_Building panel_building)
 	{
 		if (PlayerStats.Currency < turretToBuild.price) 
@@ -32,10 +35,32 @@ public class BuildManager : MonoBehaviour {
 
 		Debug.Log ("turret built, currency left" + PlayerStats.Currency);
 	}
+*/
+	public void SelectPanelBuilding(Panel_Building panel_building)
+	{
+		selectedPanel = panel_building;
+		turretToBuild = null;
+
+		panel_BuildingUI.SetTarget(panel_building);
+	}
+
+	public void DeselectPanel_Building()
+	{
+		selectedPanel = null;
+
+		panel_BuildingUI.Hide();
+	}
 	public void SelectTurretToBuild(TurretBlueprint turret)
 	{
 		turretToBuild = turret;
+		selectedPanel = null;
+
+		DeselectPanel_Building();
 	}
    
+	public TurretBlueprint GetTurretToBuild()
+	{
+		return turretToBuild;
+	}
 	
 }

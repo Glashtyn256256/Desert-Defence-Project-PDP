@@ -1,16 +1,25 @@
 ﻿using System.Collections;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Enemy : MonoBehaviour {
+
 
     public float speed = 10f;
 
     private Transform target;
+
+	public int currencyvalue = 10;
+	public float startHealth = 100f;
+	private float health;
     private int pointIndex = 0;
+
+	[Header("Unity Specific")]
+	public Image healthBar;
 
     void Start()
     {
         target = Waypoint.points[0];
+		health = startHealth;
     }
 
     void Update()
@@ -24,7 +33,25 @@ public class Enemy : MonoBehaviour {
             FindNextWaypoint();
         }
     }
-	
+
+	public void TakeDamage (float amount)
+	{
+		health -= amount;
+
+		healthBar.fillAmount = health / startHealth;
+
+		if (health <= 0) 
+		{
+			PlayerStats.Currency += currencyvalue;
+			Die();
+		}
+	}
+
+	void Die()
+	{
+		Destroy (gameObject);
+	}
+
     void FindNextWaypoint()
     {
         if (pointIndex >= (Waypoint.points.Length - 1))

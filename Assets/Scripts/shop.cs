@@ -2,6 +2,10 @@
 
 public class shop : MonoBehaviour {
 
+	public TurretBlueprint standardTurret;
+	public TurretBlueprint secondTurret; //change names later
+	public TurretBlueprint thirdTurret;
+
     // Use this for initialization
     BuildManager buildManager;
 
@@ -10,28 +14,30 @@ public class shop : MonoBehaviour {
         buildManager = BuildManager.instance;
     }
 
-    public void purchaseStandardTurret()
+    public void SelectStandardTurret()
     {
         // Check that you have the money for it first, etc.
         // Closing the shop until you have placed the turret?
         Debug.Log("Standard Turret Purchased.");
-        buildManager.SetTurretToBuild(buildManager.standardTurretPrefab);
+       // buildManager.SetTurretToBuild(buildManager.standardTurretPrefab);
+		buildManager.SelectTurretToBuild(standardTurret);
     }
 
-    public void purchaseSecondTurret()
+    public void SelectSecondTurret()
     {
         // Check that you have the money for it first, etc.
         // Closing the shop until you have placed the turret?
         Debug.Log("Second Turret Purchased.");
-        buildManager.SetTurretToBuild(buildManager.secondTurretPrefab);
+		buildManager.SelectTurretToBuild(secondTurret);
     }
 
-    public void purchaseThirdTurret()
+    public void SelectThirdTurret()
     {
         // Check that you have the money for it first, etc.
         // Closing the shop until you have placed the turret?
         Debug.Log("Third Turret Purchased.");
-        buildManager.SetTurretToBuild(buildManager.thirdTurretPrefab);
+        buildManager.SelectTurretToBuild(thirdTurret);
+
     }
 
 }

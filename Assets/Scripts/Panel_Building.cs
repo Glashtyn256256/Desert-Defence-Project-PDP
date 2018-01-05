@@ -6,10 +6,13 @@ using UnityEngine.EventSystems;
 public class Panel_Building : MonoBehaviour {
 
     public Color hoverColor;
+	public Vector3 positionOffset;
 
     private Renderer rend;
     private Color startColor;
-    private GameObject turret;
+
+	[Header("optional")] //
+    public GameObject turret;
 
     BuildManager buildManager;
 
@@ -20,12 +23,17 @@ public class Panel_Building : MonoBehaviour {
         buildManager = BuildManager.instance;
     }
 
+	public Vector3 GetBuildPosition()
+	{
+		return transform.position + positionOffset;
+	}
+
     void OnMouseDown()
     {
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (buildManager.GetTurretToBuild() == null)
+        if (!buildManager.CanBuild)
             return;
 
         if (turret!= null)
@@ -34,8 +42,7 @@ public class Panel_Building : MonoBehaviour {
             return;
         }
 
-        GameObject turretToBuild = buildManager.GetTurretToBuild();
-        turret = (GameObject)Instantiate(turretToBuild, transform.position, transform.rotation);
+		buildManager.BuildTurretOn (this);
     }
 
     void OnMouseEnter()
@@ -43,7 +50,7 @@ public class Panel_Building : MonoBehaviour {
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (buildManager.GetTurretToBuild() == null)
+        if (!buildManager.CanBuild)
             return;
 
         Debug.Log("Entered Hover");

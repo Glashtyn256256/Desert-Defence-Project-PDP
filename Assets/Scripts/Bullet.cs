@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour {
 
     private Transform _target;
 
+	public int damage = 20;
+
     public float speed = 20f;
     public GameObject splatterEffect;
     public void setTarget(Transform newTarget)
@@ -38,13 +40,23 @@ public class Bullet : MonoBehaviour {
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
 	}
 
+	void Damage(Transform enemy)
+	{
+		Enemy e = enemy.GetComponent<Enemy> ();
+		if (e != null) 
+		{
+			e.TakeDamage (damage);
+		}
+
+	}
+
     void HitTarget()
     {
 //        Debug.Log("Hit!");
         GameObject effect = (GameObject)Instantiate(splatterEffect, transform.position, transform.rotation);
         Destroy(effect, 2f);
-
-        Destroy(_target.gameObject);
+		Damage(_target);
+        //Destroy(_target.gameObject);
         Destroy(gameObject);
     }
 }

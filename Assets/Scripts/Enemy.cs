@@ -49,6 +49,7 @@ public class Enemy : MonoBehaviour {
 
 	void Die()
 	{
+        Wave_Spawner.enemiesAlive--;
 		Destroy (gameObject);
 	}
 
@@ -56,7 +57,7 @@ public class Enemy : MonoBehaviour {
     {
         if (pointIndex >= (Waypoint.points.Length - 1))
         {
-            Destroy(gameObject);
+            Die();
             return;
         }
 

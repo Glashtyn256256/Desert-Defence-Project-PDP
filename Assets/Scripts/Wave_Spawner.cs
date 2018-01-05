@@ -5,7 +5,12 @@ using UnityEngine.UI;
 
 public class Wave_Spawner : MonoBehaviour {
 
-    public Transform enemyPrefab;
+    public static int enemiesAlive = 0;
+
+    public Wave[] wave;
+    
+    //Just what enemy to spawn. Now using Waves ^^^^^
+    //public Transform enemyPrefab;
     public Transform spawnPoint;
 
     public Text waveCountdownText;
@@ -13,15 +18,21 @@ public class Wave_Spawner : MonoBehaviour {
     public float timeBetweenWaves = 5f;
     public float countdown = 7f;
     public float timeBetweenEnemies = 0.3f;
-    private int wave = 1;
+    public int waveIndex = 0;
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (enemiesAlive > 0)
+        {
+            return;
+        }
 
         if (countdown <= 0f)
         {
             StartCoroutine(SpawnWave());    //  Use of a CoRoutine to devolve timing.
             countdown = timeBetweenWaves;   //  countdown instigates the spawning of waves.
+            return;
         }
 
         countdown -= Time.deltaTime;        //  countdown changes smoothly.
@@ -33,19 +44,25 @@ public class Wave_Spawner : MonoBehaviour {
     IEnumerator SpawnWave()
     {
         //Debug.Log("Spawn Wave: " + wave);
+        Wave spawningWave = wave[waveIndex];
 
-        for (int i = 0; i < wave; i++)
+        for (int i = 0; i < spawningWave.count; i++)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(timeBetweenEnemies);
+            SpawnEnemy(spawningWave.enemy);
+            yield return new WaitForSeconds(1f/spawningWave.rate);
         }
 
-        wave++;
+        waveIndex++;
+        if (waveIndex == wave.Length)
+        {
+            waveIndex = 0;
+            Debug.Log("Game over");
+        }
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy(GameObject enemy)
     {
-        //Debug.Log("Spawning an Enemy!");
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+        enemiesAlive++;
     }
 }

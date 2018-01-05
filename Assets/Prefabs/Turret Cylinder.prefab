@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b768aa40ef4ed8f409e309a91470ec5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 8
+  range: 12
   fireRate: 1
   fireCountdown: 0
   enemyTag: Enemy

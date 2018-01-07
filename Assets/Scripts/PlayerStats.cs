@@ -37,8 +37,6 @@ public class PlayerStats : MonoBehaviour {
             Debug.Log(playerHealth);
             Debug.Log("Game Over");
             losePanel.SetActive(true);
-
-            
         }
     }
 

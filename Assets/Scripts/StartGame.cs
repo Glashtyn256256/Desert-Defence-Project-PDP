@@ -9,6 +9,14 @@ public class StartGame : MonoBehaviour {
 	public void LoadGame()
     {
         Debug.Log("Load the Game");
+        Wave_Spawner.enemiesAlive = 0;
         SceneManager.LoadScene(1);
+    }
+
+    public void GoToStartMenu()
+    {
+        Debug.Log("Going to Start Menu");
+        Wave_Spawner.enemiesAlive = 0;
+        SceneManager.LoadScene(0);
     }
 }

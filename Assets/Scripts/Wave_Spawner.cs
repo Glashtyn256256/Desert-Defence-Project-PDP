@@ -32,36 +32,46 @@ public class Wave_Spawner : MonoBehaviour {
             return;
         }
 
-        if (countdown <= 0f)
+        if (countdown <= 0f && waveIndex < wave.Length && PlayerStats.playerHealth > 0)
         {
             StartCoroutine(SpawnWave());    //  Use of a CoRoutine to devolve timing.
             countdown = timeBetweenWaves;   //  countdown instigates the spawning of waves.
             return;
         }
 
-        countdown -= Time.deltaTime;        //  countdown changes smoothly.
-        waveCountdownText.text = Mathf.Floor(countdown).ToString(); // Update the UI panel.
+        if (waveIndex >= wave.Length && enemiesAlive == 0 && PlayerStats.playerHealth > 0)
+        {
+            //waveIndex = 0;
+            winPanel.SetActive(true);
+        }
 
-        // Possibly implement an If Statement, Only show countdown between 30 - 27 seconds, 15 to 13 second, 5 to 0 seconds
+        countdown -= Time.deltaTime;
+
+        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+
+        waveCountdownText.text = string.Format("{0:00.00}", countdown);
+        
+
+        //waveCountdownText.text = countdown.ToString(); // Update the UI panel.
+
 	}
 
     IEnumerator SpawnWave()
     {
         //Debug.Log("Spawn Wave: " + wave);
-        Wave spawningWave = wave[waveIndex];
-
-        for (int i = 0; i < spawningWave.count; i++)
+        
+        if(waveIndex < wave.Length)
         {
-            SpawnEnemy(spawningWave.enemy);
-            yield return new WaitForSeconds(1f / spawningWave.rate);
-        }
 
-        waveIndex++;
+            Wave spawningWave = wave[waveIndex];
 
-        if (waveIndex >= wave.Length)
-        {
-            waveIndex = 0;
-            winPanel.SetActive(true);
+            enemiesAlive = spawningWave.count;
+             for (int i = 0; i < spawningWave.count; i++)
+             {
+                SpawnEnemy(spawningWave.enemy);
+                yield return new WaitForSeconds(1f / spawningWave.rate);
+             }
+            waveIndex++;
         }
     }
 
@@ -69,6 +79,6 @@ public class Wave_Spawner : MonoBehaviour {
     {
         //Debug.Log("Spawning an Enemy!");
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-        enemiesAlive++;
+        //enemiesAlive++;
     }
 }

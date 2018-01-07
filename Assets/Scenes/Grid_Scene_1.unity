@@ -2962,7 +2962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wave:
-  - enemy: {fileID: 1922058999299080, guid: 39c9d7919eb40b644bfa3449fa834170, type: 2}
+  - enemy: {fileID: 1451509668756070, guid: f13562b973e97634bb8d97f0af9653f5, type: 2}
     count: 2
     rate: 1
   - enemy: {fileID: 1903155763322902, guid: be249a4bcd343e3498d1624445770f46, type: 2}
@@ -2978,7 +2978,7 @@ MonoBehaviour:
   waveCountdownText: {fileID: 1068698598}
   winPanel: {fileID: 1745743924}
   timeBetweenWaves: 3
-  countdown: 1
+  countdown: 10
   timeBetweenEnemies: 0.3
   waveIndex: 0
   howManyEnemies: 0

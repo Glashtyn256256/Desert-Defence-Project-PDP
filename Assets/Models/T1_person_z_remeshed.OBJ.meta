@@ -1,0 +1,247 @@
+fileFormatVersion: 2
+guid: 2529666376995fa458ffb1db68a0c63e
+timeCreated: 1515335379
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Group1
+    100002: Group10
+    100004: Group11
+    100006: Group12
+    100008: Group13
+    100010: Group14
+    100012: Group15
+    100014: Group2
+    100016: Group3
+    100018: Group4
+    100020: Group5
+    100022: Group6
+    100024: Group7
+    100026: Group8
+    100028: Group9
+    100030: //RootNode
+    100032: ZBrush_defualt_group
+    400000: Group1
+    400002: Group10
+    400004: Group11
+    400006: Group12
+    400008: Group13
+    400010: Group14
+    400012: Group15
+    400014: Group2
+    400016: Group3
+    400018: Group4
+    400020: Group5
+    400022: Group6
+    400024: Group7
+    400026: Group8
+    400028: Group9
+    400030: //RootNode
+    400032: ZBrush_defualt_group
+    2300000: Group1
+    2300002: Group10
+    2300004: Group11
+    2300006: Group12
+    2300008: Group13
+    2300010: Group14
+    2300012: Group15
+    2300014: Group2
+    2300016: Group3
+    2300018: Group4
+    2300020: Group5
+    2300022: Group6
+    2300024: Group7
+    2300026: Group8
+    2300028: Group9
+    2300030: ZBrush_defualt_group
+    3300000: Group1
+    3300002: Group10
+    3300004: Group11
+    3300006: Group12
+    3300008: Group13
+    3300010: Group14
+    3300012: Group15
+    3300014: Group2
+    3300016: Group3
+    3300018: Group4
+    3300020: Group5
+    3300022: Group6
+    3300024: Group7
+    3300026: Group8
+    3300028: Group9
+    3300030: ZBrush_defualt_group
+    4300000: Group1
+    4300002: Group10
+    4300004: Group11
+    4300006: Group12
+    4300008: Group13
+    4300010: Group14
+    4300012: Group15
+    4300014: Group2
+    4300016: Group3
+    4300018: Group4
+    4300020: Group5
+    4300022: Group6
+    4300024: Group7
+    4300026: Group8
+    4300028: Group9
+    4300030: ZBrush_defualt_group
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group10Mat
+    second: {fileID: 2100000, guid: 20aba342f2209c6459c56ac142a0c015, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group11Mat
+    second: {fileID: 2100000, guid: 57cf525b79c2be94c82f8e3a70be59fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group12Mat
+    second: {fileID: 2100000, guid: f93d9f43ae968344f91986ae9915421a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group13Mat
+    second: {fileID: 2100000, guid: 49e5f1534531c0745b8a799192e33ca7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group14Mat
+    second: {fileID: 2100000, guid: 0ff39a693880dbe4f9ec055328a1a7bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group15Mat
+    second: {fileID: 2100000, guid: a41807dbfa2d6f64d80e3c4804f82f96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group1Mat
+    second: {fileID: 2100000, guid: 364c79c6fcc789b47a53e48e16beef04, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group2Mat
+    second: {fileID: 2100000, guid: e930e4c734b6be2409d6e8dc599d3468, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group3Mat
+    second: {fileID: 2100000, guid: 92b339210eb279d4c8b85ebc15496354, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group4Mat
+    second: {fileID: 2100000, guid: 9e06bacd479350f42af2e4f3e26726fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group5Mat
+    second: {fileID: 2100000, guid: faf7255cddad57443ad672185cdc5d17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group6Mat
+    second: {fileID: 2100000, guid: e6a60f303a3bf87449af7bb64ceaa614, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group7Mat
+    second: {fileID: 2100000, guid: e7c89120e30cbeb4f896734c30dbf141, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group8Mat
+    second: {fileID: 2100000, guid: 2e9841d16e358c1449b69cb068d231ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Group9Mat
+    second: {fileID: 2100000, guid: affe2e9e35131f54ab4069383e208c73, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ZBrush_defualt_groupMat
+    second: {fileID: 2100000, guid: e7ce6b05cc459de4bb0fb85b24ce68d8, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

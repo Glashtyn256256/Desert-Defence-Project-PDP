@@ -14,6 +14,8 @@ public class Wave_Spawner : MonoBehaviour {
 
     public Text waveCountdownText;
 
+    public GameObject winPanel;
+
     public float timeBetweenWaves = 5f;
     public float countdown = 7f;
     public float timeBetweenEnemies = 0.3f;
@@ -56,10 +58,10 @@ public class Wave_Spawner : MonoBehaviour {
 
         waveIndex++;
 
-        if (waveIndex == wave.Length)
+        if (waveIndex >= wave.Length)
         {
             waveIndex = 0;
-            Debug.Log("Game over");
+            winPanel.SetActive(true);
         }
     }
 

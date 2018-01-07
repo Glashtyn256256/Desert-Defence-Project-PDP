@@ -8,8 +8,13 @@ public class CameraController : MonoBehaviour {
     public float panBorderThickness = 50f;
     private bool doMovement = true;
 
-    public float minYValue = 40f;
-    public float maxYValue = 220f;
+    public float minYValue = 10f;
+    public float maxYValue = 80f;
+
+    private float minXValue = -5f;
+    private float maxXValue = 100f;
+    private float minZValue = -50f;
+    private float maxZValue = 55f;
 
     // Update is called once per frame
     void Update () {
@@ -20,18 +25,19 @@ public class CameraController : MonoBehaviour {
 
         // Mouse Position depends on the resolution.
         // *Normalise this by dividing by screen height?
-        if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
-            transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);   // Forward = Vector3 0f,0f,1f;
-            // Translate doesn't do any physics checks. It just moves it.
-            // Moving Forward LOCALLY depends on rotation. but WORLD makes the movement relative to the world.
-        
-        if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
+        if ((Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness) && transform.position.z < maxZValue)
+            transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);   // Forward = Vector3 0f,0f,1f;   
+        //transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);   // Forward = Vector3 0f,0f,1f;
+        // Translate doesn't do any physics checks. It just moves it.
+        // Moving Forward LOCALLY depends on rotation. but WORLD makes the movement relative to the world.
+
+        if ((Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness) && transform.position.z > minZValue)
             transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World);
 
-        if (Input.GetKey("a") || Input.mousePosition.x <= panBorderThickness)
+        if ((Input.GetKey("a") || Input.mousePosition.x <= panBorderThickness) && transform.position.x > minXValue)
             transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World);
 
-        if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
+        if ((Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness) && transform.position.x < maxXValue)
             transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");

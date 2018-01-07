@@ -20,13 +20,16 @@ public class Turret : MonoBehaviour {
     public GameObject bulletPrefab;
     public Transform firePoint;
 
+    Vector3 measureFromMe;
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
         partToRotate = this.transform;
-	}
+        measureFromMe = transform.position;
+        measureFromMe.y = 3f;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -90,7 +93,9 @@ public class Turret : MonoBehaviour {
 
     void OnDrawGizmosSelected()
     {
+        Vector3 drawMe = transform.position;
+        drawMe.y = 2f;
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(drawMe, range);
     }
 }

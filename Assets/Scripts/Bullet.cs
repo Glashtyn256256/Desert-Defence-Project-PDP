@@ -9,16 +9,15 @@ public class Bullet : MonoBehaviour {
 	public int damage = 20;
 
     public float speed = 20f;
+
+    public float explosionRadius = 0f;
+
     public GameObject splatterEffect;
     public void setTarget(Transform newTarget)
     {
         _target = newTarget;
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -38,6 +37,7 @@ public class Bullet : MonoBehaviour {
         }
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        transform.LookAt(_target);
 	}
 
 	void Damage(Transform enemy)
@@ -55,8 +55,45 @@ public class Bullet : MonoBehaviour {
 //        Debug.Log("Hit!");
         GameObject effect = (GameObject)Instantiate(splatterEffect, transform.position, transform.rotation);
         Destroy(effect, 2f);
-		Damage(_target);
+
+        if (explosionRadius > 0f)
+        {
+            Explode();
+        }
+        else
+        {
+    		Damage(_target);
+        }
+
         //Destroy(_target.gameObject);
         Destroy(gameObject);
+    }
+
+    void Explode()
+    {
+        Debug.Log("Missile Has Exploded");
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        foreach (Collider col in colliders)
+        {
+            if (col.tag == "enemyTag")
+            {
+                //Damage(col.transform);
+                Enemy e = col.GetComponent<Enemy>();
+                if (e != null)
+                {
+                    Debug.Log("enemy to Take Damage");
+                    e.TakeDamage(damage);
+                }
+            }
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (explosionRadius > 0f)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, explosionRadius);
+        }
     }
 }

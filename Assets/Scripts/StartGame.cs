@@ -19,4 +19,9 @@ public class StartGame : MonoBehaviour {
         Wave_Spawner.enemiesAlive = 0;
         SceneManager.LoadScene(0);
     }
+
+	public void SubmitScore()
+	{
+		PlayerStats.AddHighscore ();
+	}
 }

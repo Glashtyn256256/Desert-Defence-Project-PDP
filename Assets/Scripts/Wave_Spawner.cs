@@ -21,6 +21,7 @@ public class Wave_Spawner : MonoBehaviour {
     public float timeBetweenEnemies = 0.3f;
     public int waveIndex = 0;
     public int howManyEnemies = 0;
+	public bool Win = false;
 	
 	// Update is called once per frame
 	void Update () {
@@ -43,6 +44,7 @@ public class Wave_Spawner : MonoBehaviour {
         {
             //waveIndex = 0;
             winPanel.SetActive(true);
+			Win = true;
         }
 
         countdown -= Time.deltaTime;
@@ -68,17 +70,21 @@ public class Wave_Spawner : MonoBehaviour {
             enemiesAlive = spawningWave.count;
              for (int i = 0; i < spawningWave.count; i++)
              {
-                SpawnEnemy(spawningWave.enemy);
+                SpawnEnemy(spawningWave.enemy, spawningWave.pathNumber);
                 yield return new WaitForSeconds(1f / spawningWave.rate);
              }
             waveIndex++;
         }
     }
 
-    void SpawnEnemy(GameObject enemy)
+    void SpawnEnemy(GameObject enemyGO, int pathNumber)
     {
         //Debug.Log("Spawning an Enemy!");
-        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+        GameObject changeMe = (GameObject)Instantiate(enemyGO, spawnPoint.position, spawnPoint.rotation);
+
+        Enemy thisClass = changeMe.GetComponent<Enemy>();
+        thisClass.path = pathNumber;
+
         //enemiesAlive++;
     }
 }

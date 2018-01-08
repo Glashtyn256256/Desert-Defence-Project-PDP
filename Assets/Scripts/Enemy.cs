@@ -14,13 +14,18 @@ public class Enemy : MonoBehaviour {
 	private float health;
     private int pointIndex = 0;
 
-	[Header("Unity Specific")]
+    public int path = 1;
+
+    [Header("Unity Specific")]
 	public Image healthBar;
 
     void Start()
     {
-        target = Waypoint.points[0];
-		health = startHealth;
+        if (path == 1)
+            target = Waypoint.path1points[0];
+        else
+            target = Waypoint.path2points[0];
+        health = startHealth;
     }
 
     void Update()
@@ -65,15 +70,32 @@ public class Enemy : MonoBehaviour {
 
     void FindNextWaypoint()
     {
-        if (pointIndex >= (Waypoint.points.Length - 1))
+        if (path == 1)
         {
-            //Destroy(gameObject);
-            DamageWall();
-            Die();
-            return;
+
+            if (pointIndex >= (Waypoint.path1points.Length - 1))
+            {
+                //Destroy(gameObject);
+                DamageWall();
+                Die();
+                return;
+            }
+            pointIndex++;
+            target = Waypoint.path1points[pointIndex];
         }
 
-        pointIndex++;
-        target = Waypoint.points[pointIndex];
+        if (path == 2)
+        {
+
+            if (pointIndex >= (Waypoint.path2points.Length - 1))
+            {
+                //Destroy(gameObject);
+                DamageWall();
+                Die();
+                return;
+            }
+            pointIndex++;
+            target = Waypoint.path2points[pointIndex];
+        }
     }
 }

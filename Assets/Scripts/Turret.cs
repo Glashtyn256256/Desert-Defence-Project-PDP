@@ -33,16 +33,22 @@ public class Turret : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (fireCountdown > 0)
+        {
+            fireCountdown -= Time.deltaTime;
+        }
+
         if (target == null)
+        {
             return;
+        }
 
         Vector3 direction = target.position - transform.position;
-
         Quaternion lookRotation = Quaternion.LookRotation(direction);
-
         Vector3 rotation = lookRotation.eulerAngles;
-
-        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        //partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        partToRotate.rotation = Quaternion.Euler(rotation.x, rotation.y, 0f);
 
 
         if (fireCountdown <= 0)
@@ -50,7 +56,6 @@ public class Turret : MonoBehaviour {
             Shoot();
             fireCountdown = 1f / fireRate;
         }
-        fireCountdown -= Time.deltaTime;
 	}
 
     void Shoot()

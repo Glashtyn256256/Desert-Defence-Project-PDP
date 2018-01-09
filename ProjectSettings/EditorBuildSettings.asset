@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Grid_Scene_1.unity
     guid: 54e089f77c9715e40ac2d5a777457337
+  - enabled: 1
+    path: Assets/Scenes/Highscore.unity
+    guid: 81028a73842b15445a74f3eb3f5efca7

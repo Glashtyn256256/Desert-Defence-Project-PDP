@@ -16,7 +16,7 @@ public class Highscores : MonoBehaviour
 
 	void Awake(){
 		instance = this;
-		//if (Application.loadedLevel == 4)
+
 			highscoresDisplay = GetComponent<DisplayHighscores> ();
 
 	}
@@ -54,7 +54,7 @@ public class Highscores : MonoBehaviour
 		
 		if (string.IsNullOrEmpty (www.error))     // This is to show if a error has occured in the uploading
 		{
-			if (Application.loadedLevel == 4){
+			{
 				FormatHighscores (www.text);
 				highscoresDisplay.OnHighscoresDownloaded (highscoresList);
 			}

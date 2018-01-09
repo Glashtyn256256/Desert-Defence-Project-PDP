@@ -23,6 +23,7 @@ public class DisplayHighscores : MonoBehaviour {
 
 	public void OnHighscoresDownloaded(Highscore[] highscoreList) 
 	{
+		Debug.Log ("working OnhighscoresDownload");
 		for (int i = 0; i < HighscoreText.Length; i++) 
 		{
 			HighscoreText[i].text = i+1 +". ";
@@ -36,6 +37,7 @@ public class DisplayHighscores : MonoBehaviour {
 	IEnumerator RefreshHighscores()
 	{
 		while (true) {
+			//Debug.Log ("working refreshonhighscores");
 			HighscoreManager.DownloadHighscores();
 			yield return new WaitForSeconds(30); //refreshes the leaderboard every 30 seconds
 		}

@@ -12,6 +12,11 @@ public class StartGame : MonoBehaviour {
         Wave_Spawner.enemiesAlive = 0;
         SceneManager.LoadScene(1);
     }
+    public void LoadHighscore()
+    {
+        Wave_Spawner.enemiesAlive = 0;
+        SceneManager.LoadScene(2);
+    }
 
     public void GoToStartMenu()
     {

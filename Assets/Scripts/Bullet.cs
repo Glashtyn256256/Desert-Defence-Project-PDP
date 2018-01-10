@@ -14,6 +14,8 @@ public class Bullet : MonoBehaviour {
 
     public float explosionRadius = 0f;
 
+    public bool iceArrow = false;
+
     public GameObject splatterEffect;
     public void setTarget(Transform newTarget)
     {
@@ -97,7 +99,9 @@ public class Bullet : MonoBehaviour {
                 {
                     Debug.Log("enemy to Take Damage");
                     e.TakeDamage(damage);
-					e.TakeSpeedDamage(damage);
+                    // Only freeze if it's an Ice arrow.
+                    if (iceArrow)
+                    e.TakeSpeedDamage(damage);
                 }
             }
         }

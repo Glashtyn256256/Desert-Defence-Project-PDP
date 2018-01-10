@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour {
             target = Waypoint.path1points[0];
         else
             target = Waypoint.path2points[0];
+
         health = startHealth;
 
 		health = startHealth;
@@ -50,6 +51,14 @@ public class Enemy : MonoBehaviour {
         // Target Position - the Enemy's position gives relative position.
         Vector3 direction = target.position - transform.position;
         transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+
+        //transform.rotation = Quaternion.Lerp(transform.rotation, direction, Time.time * speed);
+
+        float step = speed * Time.deltaTime;
+        Vector3 newDir = Vector3.RotateTowards(transform.forward, direction, step, 0.0F);
+        Debug.DrawRay(transform.position, newDir, Color.red);
+        transform.rotation = Quaternion.LookRotation(newDir);
+
 
         if (Vector3.Distance(target.position, transform.position) <= 0.2f)
         {

@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour {
 
     private Transform _target;
 
+    public Vector3 targetLastKnown;
+
 	public int damage = 20;
 
     public float speed = 20f;
@@ -21,13 +23,25 @@ public class Bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (_target == null)
+
+        Vector3 dir;
+        if (_target != null)
         {
-            Destroy(gameObject);
-            return;
+            targetLastKnown = _target.position;
+            dir = _target.position - transform.position;
+        }
+        else
+        {
+            if (explosionRadius == 0)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            dir = targetLastKnown - transform.position;
         }
 
-        Vector3 dir = _target.position - transform.position;
+
+
         float distanceThisFrame = speed * Time.deltaTime;   // How fast, normalised against change in framerate
 
         if (dir.magnitude <= distanceThisFrame)
@@ -37,7 +51,7 @@ public class Bullet : MonoBehaviour {
         }
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-        transform.LookAt(_target);
+        transform.LookAt(targetLastKnown);
 	}
 
 	void Damage(Transform enemy)

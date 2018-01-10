@@ -4,7 +4,14 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour {
 
 
-    public float speed = 10f;
+	public float startSpeed = 10f;
+	public float speed;
+	public bool iceStatus;
+	public float startSlowTime = 0f;
+	public float slowTime;
+	public float xslowtime = 5f;
+
+
 
     private Transform target;
 
@@ -18,6 +25,7 @@ public class Enemy : MonoBehaviour {
 
     [Header("Unity Specific")]
 	public Image healthBar;
+	public Image statusBar;
 
     void Start()
     {
@@ -26,6 +34,11 @@ public class Enemy : MonoBehaviour {
         else
             target = Waypoint.path2points[0];
         health = startHealth;
+
+		health = startHealth;
+		slowTime = startSlowTime;
+		speed = startSpeed;
+		statusBar.fillAmount = 0.0f;
     }
 
     void Update()
@@ -42,7 +55,31 @@ public class Enemy : MonoBehaviour {
         {
             FindNextWaypoint();
         }
-    }
+
+		if (iceStatus == true) 
+		{
+			Debug.Log ("True works");
+			if (slowTime == 0) 
+			{
+				Debug.Log(slowTime + "in update"); 
+				iceStatus = false;
+				speed = startSpeed;
+
+			}
+			else
+			{
+				Debug.Log ("Fillbar works");
+
+				slowTime -= Time.deltaTime;
+				statusBar.fillAmount = slowTime/xslowtime;
+				slowTime = Mathf.Clamp(slowTime, 0f, Mathf.Infinity);
+				Debug.Log (slowTime);
+
+			}
+		}
+	}
+
+    
 
 	public void TakeDamage (float amount)
 	{
@@ -55,6 +92,19 @@ public class Enemy : MonoBehaviour {
 			PlayerStats.Currency += currencyvalue;
 			Die();
 		}
+	}
+
+	public void TakeSpeedDamage(float damage)
+	{
+
+		health -= damage;
+		healthBar.fillAmount = health / startHealth;
+		speed = 5f;
+		slowTime = 5f;
+		iceStatus = true;
+		Debug.Log (slowTime);
+		Debug.Log (speed);
+
 	}
 
    public void DamageWall()

@@ -97,6 +97,7 @@ public class Bullet : MonoBehaviour {
                 {
                     Debug.Log("enemy to Take Damage");
                     e.TakeDamage(damage);
+					e.TakeSpeedDamage(damage);
                 }
             }
         }

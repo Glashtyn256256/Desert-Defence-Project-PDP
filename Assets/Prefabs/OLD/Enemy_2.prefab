@@ -148,10 +148,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc4fce753f14d6408a47c922e8d8d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startSpeed: 10
   speed: 10
+  iceStatus: 0
+  startSlowTime: 0
+  slowTime: 0
+  xslowtime: 5
   currencyvalue: 20
   startHealth: 15
+  damageToWall: 1
+  path: 1
   healthBar: {fileID: 114365873291381176}
+  statusBar: {fileID: 0}
 --- !u!114 &114365873291381176
 MonoBehaviour:
   m_ObjectHideFlags: 1

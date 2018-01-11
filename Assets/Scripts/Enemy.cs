@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour {
 
         float step = speed * Time.deltaTime;
         Vector3 newDir = Vector3.RotateTowards(transform.forward, direction, step, 0.0F);
-        Debug.DrawRay(transform.position, newDir, Color.red);
+        //Debug.DrawRay(transform.position, newDir, Color.red);
         transform.rotation = Quaternion.LookRotation(newDir);
 
 

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 223754342329500938}
   - component: {fileID: 114694137284984784}
   - component: {fileID: 114921226892833930}
+  - component: {fileID: 114026076395097800}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1410,6 +1411,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1451509668756070}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114026076395097800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1095748421557990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66806138f0fae1c44b7c3f38ca55cabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hbsb: {fileID: 223754342329500938}
+  mainCamera: {fileID: 20366513843128206, guid: 5ee4cf1fdf15904448f4658a03736c12,
+    type: 2}
 --- !u!114 &114509498649545046
 MonoBehaviour:
   m_ObjectHideFlags: 1

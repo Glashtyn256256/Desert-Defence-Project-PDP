@@ -12999,8 +12999,8 @@ MonoBehaviour:
   startHealth: 20
   damageToWall: 1
   path: 1
-  healthBar: {fileID: 0}
-  statusBar: {fileID: 0}
+  healthBar: {fileID: 114689383768238450}
+  statusBar: {fileID: 114009468074083648}
 --- !u!114 &114436289933388168
 MonoBehaviour:
   m_ObjectHideFlags: 1

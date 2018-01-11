@@ -233,8 +233,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1271561469903910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.3, y: 7.08, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalPosition: {x: 14.346085, y: 6.4675922, z: -40.419853}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children:
   - {fileID: 4369742964893564}
   - {fileID: 4737105836661052}
@@ -519,6 +519,7 @@ MonoBehaviour:
   fireCountdown: 0
   enemyTag: Enemy
   partToRotate: {fileID: 4198639771433810}
+  partToElevate: {fileID: 0}
   turnSpeed: 10
   bulletPrefab: {fileID: 1340868139827826, guid: 2f247e2ad81e0a14ba4c336c8e522a6d,
     type: 2}

@@ -50,6 +50,8 @@ public class Turret : MonoBehaviour {
         Vector3 newrotation = lookRotation.eulerAngles;
         //partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
         partToRotate.rotation = Quaternion.Euler(0f, newrotation.y, 0f);
+
+        if(partToElevate != null)
         partToElevate.rotation = Quaternion.Euler(newrotation.x, newrotation.y, 0f);
 
 

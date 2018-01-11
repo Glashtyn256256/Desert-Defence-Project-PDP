@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetLastKnown: {x: 0, y: 0, z: 0}
-  damage: 1
+  damage: 5
   speed: 15
   explosionRadius: 4
   iceArrow: 0

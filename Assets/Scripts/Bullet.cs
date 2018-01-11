@@ -58,17 +58,19 @@ public class Bullet : MonoBehaviour {
 
 	void Damage(Transform enemy)
 	{
+        Debug.Log("Damage Target");
 		Enemy e = enemy.GetComponent<Enemy> ();
 		if (e != null) 
 		{
-			e.TakeDamage (damage);
+            Debug.Log("Damage Target");
+            e.TakeDamage (damage);
 		}
 
 	}
 
     void HitTarget()
     {
-//        Debug.Log("Hit!");
+        Debug.Log("Hit!");
         GameObject effect = (GameObject)Instantiate(splatterEffect, transform.position, transform.rotation);
         Destroy(effect, 2f);
 

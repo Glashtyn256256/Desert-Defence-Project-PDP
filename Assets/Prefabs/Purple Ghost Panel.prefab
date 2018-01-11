@@ -36,8 +36,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1425247477254270}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.763, y: 17.232, z: 43.887}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.48, y: -2.36, z: -8.28}
   m_LocalScale: {x: 4, y: 0.5, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,12 +109,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0, g: 0, b: 0, a: 0}
   positionOffset: {x: 0, y: 0, z: 0}
+  towerTier: 0
+  upgradePrice: 0
+  tierLevel: 0
+  upgradeText: {fileID: 0}
   turret: {fileID: 0}
   turretBlueprint:
     prefab: {fileID: 0}
     price: 0
-    upgradedPrefab: {fileID: 0}
-    upgradePrice: 0
+    upgradedPrefabTier1: {fileID: 0}
+    upgradedPrefabTier2: {fileID: 0}
+    upgradedPrefabTier3: {fileID: 0}
+    upgradePriceTier1: 40
+    upgradePriceTier2: 80
+    upgradePriceTier3: 160
     selldeduction: 2
   isUpgraded: 0
   playerStats: {fileID: 0}

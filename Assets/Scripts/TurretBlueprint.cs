@@ -9,8 +9,13 @@ public class TurretBlueprint {
 	public GameObject prefab;
 	public int price;
 
-	public GameObject upgradedPrefab;
-	public int upgradePrice;
+	public GameObject upgradedPrefabTier1;
+	public GameObject upgradedPrefabTier2;
+	public GameObject upgradedPrefabTier3;
+
+	public int upgradePriceTier1 = 40;
+	public int upgradePriceTier2 = 80;
+	public int upgradePriceTier3 = 160;
 
 
 	public int selldeduction = 2;

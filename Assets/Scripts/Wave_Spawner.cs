@@ -13,8 +13,10 @@ public class Wave_Spawner : MonoBehaviour {
     public Transform spawnPoint;
 
     public Text waveCountdownText;
+    public Text waveNumText;
 
     public GameObject winPanel;
+
 
     public GameObject spawnWaveButton;
 
@@ -69,6 +71,11 @@ public class Wave_Spawner : MonoBehaviour {
     {
         //Debug.Log("Spawn Wave: " + wave);
         spawnWaveButton.SetActive(false);
+        // Display the wave text. Has to be plus 1, as the wave Index iterates after all enemies have spawned.
+        // This is because the waveIndex is referenced inside the spawning function until all enemies have spawned, it cant be changed.
+        waveNumText.text = "Wave : " + (waveIndex+1);
+        if (waveIndex == (wave.Length - 2))
+        waveNumText.text = "Wave : BOSS!";
 
         if (waveIndex < wave.Length)
         {

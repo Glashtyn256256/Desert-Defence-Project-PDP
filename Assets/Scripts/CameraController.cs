@@ -11,10 +11,10 @@ public class CameraController : MonoBehaviour {
     public float minYValue = 10f;
     public float maxYValue = 80f;
 
-    private float minXValue = -5f;
-    private float maxXValue = 100f;
-    private float minZValue = -50f;
-    private float maxZValue = 55f;
+	public float minXValue = -5f;
+	public float maxXValue = 100f;
+	public float minZValue = -50f;
+	public float maxZValue = 55f;
 
     // Update is called once per frame
     void Update () {

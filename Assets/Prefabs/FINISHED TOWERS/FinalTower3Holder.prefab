@@ -233,7 +233,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1271561469903910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.346085, y: 6.4675922, z: -40.419853}
+  m_LocalPosition: {x: 15.036423, y: 1.0071392, z: -17.922043}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children:
   - {fileID: 4369742964893564}
@@ -392,7 +392,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 51702314cc8c5594e8356a3f2bbc987c, type: 2}
+  - {fileID: 2100000, guid: 9e9f77eee13d88245907778a9371d421, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -514,12 +514,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b768aa40ef4ed8f409e309a91470ec5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
+  range: 30
   fireRate: 1
   fireCountdown: 0
   enemyTag: Enemy
   partToRotate: {fileID: 4198639771433810}
-  partToElevate: {fileID: 0}
+  partToElevate: {fileID: 4198639771433810}
   turnSpeed: 10
   bulletPrefab: {fileID: 1340868139827826, guid: 2f247e2ad81e0a14ba4c336c8e522a6d,
     type: 2}

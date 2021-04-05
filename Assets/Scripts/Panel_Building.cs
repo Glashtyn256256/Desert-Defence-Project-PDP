@@ -39,7 +39,7 @@ public class Panel_Building : MonoBehaviour {
         buildManager = BuildManager.instance;
 		//upgradePrice = turretBlueprint.upgradePrice;
 		Debug.Log (upgradePrice);
-		upgradeText.text = "Tier " + towerTier + "\n\n" + upgradePrice;
+		//upgradeText.text = "Tier " + towerTier + "\n\n" + upgradePrice;
     }
 
 	void Update()
@@ -104,7 +104,7 @@ public class Panel_Building : MonoBehaviour {
 	public void UpgradeTurret()
 	{
 		{
-
+			// Can't upgrade
 			if (towerTier == 4) 
 			{	
 				upgradePriceDisplay();
@@ -112,13 +112,18 @@ public class Panel_Building : MonoBehaviour {
 				return;
 
 			}
-			else if (PlayerStats.Currency < turretBlueprint.upgradePriceTier2) // Return if currency is less than price of 2nd tier? regardless of current tier.
+			else if (towerTier == 1 && PlayerStats.Currency < turretBlueprint.upgradePriceTier1) // Return if currency is less than price of 2nd tier? regardless of current tier.
 			{
 				Debug.Log ("Not enough cash to upgrade boiiiiii");
 				return;
 
 			} 
-			else if (PlayerStats.Currency < turretBlueprint.upgradePriceTier3) // Return if currency is less than price of 3rd tier? regardless of current tier.
+			else if (towerTier == 2 && PlayerStats.Currency < turretBlueprint.upgradePriceTier2) // Return if currency is less than price of 3rd tier? regardless of current tier.
+			{
+				Debug.Log ("Not enough cash to upgrade boiiiiii");
+				return;
+			}
+			else if (towerTier == 3 && PlayerStats.Currency < turretBlueprint.upgradePriceTier3) // Return if currency is less than price of 3rd tier? regardless of current tier.
 			{
 				Debug.Log ("Not enough cash to upgrade boiiiiii");
 				return;
@@ -129,11 +134,11 @@ public class Panel_Building : MonoBehaviour {
 				//Debug.Log (turretBlueprint.upgradePriceTier2);
 				Destroy (turret);  //removes old turret
 
-				GameObject _turret = (GameObject)Instantiate (turretBlueprint.upgradedPrefabTier2, GetBuildPosition (), Quaternion.identity);
+				GameObject _turret = (GameObject)Instantiate (turretBlueprint.upgradedPrefabTier1, GetBuildPosition (), Quaternion.identity);
 				towerTier += 1;
 				turret = _turret;
 				upgradePrice = turretBlueprint.upgradePriceTier2;
-				upgradePriceDisplay();
+				//upgradePriceDisplay();
 				Debug.Log ("Turret upgraded to tier 2");
 			} 
 			else if (towerTier == 2) 
@@ -142,11 +147,11 @@ public class Panel_Building : MonoBehaviour {
 
 				Destroy (turret);  //removes old turret
 
-				GameObject _turret = (GameObject)Instantiate (turretBlueprint.upgradedPrefabTier3, GetBuildPosition (), Quaternion.identity);
+				GameObject _turret = (GameObject)Instantiate (turretBlueprint.upgradedPrefabTier2, GetBuildPosition (), Quaternion.identity);
 				towerTier += 1;
 				turret = _turret;
 				upgradePrice = turretBlueprint.upgradePriceTier3;
-				upgradePriceDisplay();
+				//upgradePriceDisplay();
 				Debug.Log ("Turret upgraded to tier 3");
 			}
 			else if (towerTier == 3) 
@@ -158,7 +163,7 @@ public class Panel_Building : MonoBehaviour {
 				GameObject _turret = (GameObject)Instantiate (turretBlueprint.upgradedPrefabTier3, GetBuildPosition (), Quaternion.identity);
 				towerTier += 1;
 				turret = _turret;
-				upgradePriceDisplay();
+				//upgradePriceDisplay();
 				Debug.Log ("Turret upgraded to tier 3");
 			}
 		}

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Wave_Spawner : MonoBehaviour {
 
+    public AudioSource waveMusic;
+
     public static int enemiesAlive = 0;
 
     public Wave[] wave;
@@ -27,6 +29,12 @@ public class Wave_Spawner : MonoBehaviour {
     public int howManyEnemies = 0;
 	public bool Win = false;
 	
+
+    void Start()
+    {
+        //GameObject MusicHolder = GameObject.FindGameObjectWithTag("MusicPlayer");
+    }
+
 	// Update is called once per frame
 	void Update () {
 

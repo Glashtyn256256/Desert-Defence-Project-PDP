@@ -37,7 +37,7 @@ public class PlayerStats : MonoBehaviour {
 	{
         
 		currencyText.text ="£" + Mathf.Floor(Currency).ToString();
-        playerHealthText.text = Mathf.Floor(playerHealth).ToString() + "%";
+        playerHealthText.text ="Wall: " + Mathf.Floor(playerHealth).ToString();
 		InputName ();
         UpdatePlayerHealthBar();
         if (playerHealth <= 0)

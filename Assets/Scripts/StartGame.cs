@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour {
 
+    public AudioSource titleSong;
+
+    
+
 	// Use this for initialization
 	public void LoadGame()
     {

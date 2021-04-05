@@ -1,1 +1,1 @@
-GitHUB
+Re-uploaded to my repository . Due to merging issue and lack of experience in Source Control at the time. Was decided to just use one GitHub account due to the short time frame which was why the commits were all made from one account.
